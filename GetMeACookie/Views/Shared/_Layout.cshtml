@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div class="nav">
+        @if (Request.IsAuthenticated)
+        {
+            <div class="FL">
+                @Html.ActionLink("Home", "Index", "Home")
+            </div>
+            <div class="FL">
+                @Html.ActionLink("Bank Ac Details", "Index", "AccountDetails")
+            </div>
+            <div class="FR">
+                @Html.ActionLink("Sign Out", "Logout", "Login")
+            </div>           
+    
+        }
+    </div>
+    @RenderBody()
+</body>
+</html>
