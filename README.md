@@ -36,7 +36,7 @@ GO
 
 
 
-
+***************************************************************************************************************************************
 
 
 About Cookies:
@@ -55,7 +55,7 @@ Non-Persistent Cookie get removed if the browser is closed or the Auth-ticket ex
 So if you close your browser even before Auth-ticket has expired you will lose the Cookie and have to log-in again or If your Auth-Ticket Expires even with the browser open, Cookie will be removed.
 
 
-                                                        ************************* Note *************************
+                                     ************************* Note *************************
 
 If you keep -- slidingExpiration="True", Auth-ticket's Time-Out gets extended with every server interaction and it will Extend the Auth-cookie's TimeOut as-well. 
 
@@ -76,7 +76,7 @@ FormsAuthenticationTicket authTicket
 slidingExpiration="True", will not Extend Expiry of any othe Cookies apart from Auth-Cookie.
 
 
-                                                         *************** Browser Settings ****************
+                                          *************** Browser Settings ****************
 
 In Chromes content setting section when we check the option "Keep local data only until you quit your browser" , Chrome will delete all the cookies once you close your browser irrespective of the cookie type (persistent/non-persistent), however if you unchecked that then persistent cookies will be stored in your local even when you close your browser for your later use and will expire according to the server code or Expiration time written in the cookie.
 
