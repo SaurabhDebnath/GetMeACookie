@@ -47,17 +47,17 @@ Persistent Cookie only gets removed with its own expiration time. It remains eve
 
 E.g . Suppose you set TimeOut of your Auth Token to 1 hour and kept the same TimeOut for your Auth Cookie, with-in this time frame you will be logged-in even if you close the browser. (given that your browser's "Keep local data only until you quit your browser" is not checked )
 
-You need not keep other Persistent Cookies in sync with the Auth-ticket, but only the Auth-Cookie.
+You need not keep all the other Persistent Cookies in sync with the Auth-ticket but only the Auth-Cookie.
 
 
 Non-Persistent Cookie get removed if the browser is closed or the Auth-ticket expires (Web.config -- time out).
 
-So if you close your browser even before Auth-ticket has expired you will lose the Cookie and have to log-in again or If your Auth-Ticket Expires even with the browser open, Cookie will be removed.
+So if you close your browser even before Auth-ticket has expired you will lose the Cookie and have to log-in again or If your Auth-Ticket Expires even when the browser is open, Cookie will be removed.
 
 
                                      ************************* Note *************************
 
-If you keep -- slidingExpiration="True", Auth-ticket's Time-Out gets extended with every server interaction and it will Extend the Auth-cookie's TimeOut as-well. 
+If you keep -- slidingExpiration="True", Auth-ticket's Time-Out gets extended with every server interaction and it will Extend the Auth-cookie's TimeOut as-well. Below is the code block which creates the Auth Tocken, encrypts it, attaches it to the Auth Cookie and then sets the Cookie Time-out.
 
  
 FormsAuthenticationTicket authTicket
@@ -80,7 +80,7 @@ slidingExpiration="True", will not Extend Expiry of any othe Cookies apart from 
 
 In Chromes content setting section when we check the option "Keep local data only until you quit your browser" , Chrome will delete all the cookies once you close your browser irrespective of the cookie type (persistent/non-persistent), however if you unchecked that then persistent cookies will be stored in your local even when you close your browser for your later use and will expire according to the server code or Expiration time written in the cookie.
 
-Eg. You log-in to GitHub. GitHub drops a cookie into your local. All the time you were logged-in to GitHub account you used that cookie for identifying yourself to the GitHub server, now you closed the GitHub tab and opened Facebook in a tab, Facebook server drops a fb cookie into your local. Now your local has both fb cookie and GitHub cookie. You need not log-in again in-order to use any of these sites even if you fully close you browser, unless your locally stored cookies expire according to the cookie expiration time provided by the server.
+Eg. You log-in to GitHub. GitHub drops a cookie into your local floder. All the time you were logged-in to GitHub account you used that cookie for identifying yourself to the GitHub server, now you closed the GitHub tab and opened Facebook, Facebook server drops a fb cookie into your local folder. Now your local has both fb cookie and GitHub cookie. You need not log-in again in-order to use any of these sites even if you fully close you browser, unless your locally stored cookies expire according to the cookie expiration time provided by the server.
 
 But if your "Keep local data only until you quit your browser" is checked, you will lose all the locally stored cookies once when you close the browser and you are going to have to log-in back again in-order for the fb and GitHub server to identify you.
 
